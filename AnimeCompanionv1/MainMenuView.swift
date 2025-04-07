@@ -35,12 +35,8 @@ struct MainMenuView: View {
                                 .frame(width: 28, height: 28)
                                 .clipShape(RoundedRectangle(cornerRadius: 6))
 
-                            Text("AnimeCompanion")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("sakuraPink"))
                         }
-                        
+
                         Spacer(minLength: 20)
                         
                         // Right side - Action buttons
@@ -100,14 +96,11 @@ struct MainMenuView: View {
 
                     // Begrüßung
                     VStack(spacing: 4) {
-                        Text("Your personal")
+                        Text("Your Anime Companion")
                             .font(.largeTitle)
-                            .foregroundColor(Color("sakuraPink"))
+                            .foregroundColor(Color(.white))
                             .fontWeight(.bold)
 
-                        Text("Companion")
-                            .foregroundColor(Color("sakuraPink"))
-                            .fontWeight(.medium)
                     }
 
                     // Grid-Menü
@@ -161,7 +154,7 @@ struct MainMenuView: View {
                 .font(.headline)
                 .fontWeight(.semibold)
         }
-        .foregroundColor(Color("sakuraPink"))
+        .foregroundColor(Color(.white))
         .frame(maxWidth: .infinity, minHeight: 120)
         .background(
             RoundedRectangle(cornerRadius: 16)
