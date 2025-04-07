@@ -1,67 +1,102 @@
-//
-//  WatchedAnimeView.swift
-//  AnimeCompanionv1
-//
-//  Created by Yannik Leekes on 02.04.25.
-//
-
-
 import SwiftUI
 
 struct WatchedAnimeView: View {
     @Environment(\.dismiss) var dismiss
     @State private var selectedSortOption = "Name"
-    
+    @State private var showSortDropdown = false
+
     let sortOptions = ["Name", "Rating", "Zuletzt geschaut"]
 
     var body: some View {
-        VStack(spacing: 16) {
-            // HEADER
-            HStack {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .font(.headline)
-                        .foregroundColor(Color("sakuraPink"))
-                }
-
-                Text("Watched Anime")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("sakuraPink"))
-
-                Spacer()
-                
-                Menu {
-                    ForEach(sortOptions, id: \.self) { option in
-                        Button(action: {
-                            selectedSortOption = option
-                        }) {
-                            Text(option)
-                                
+        ZStack {
+            // Hintergrund – reagiert auf Tap zum Schließen des Dropdowns
+            Color.black
+                .ignoresSafeArea()
+                .onTapGesture {
+                    if showSortDropdown {
+                        withAnimation {
+                            showSortDropdown = false
                         }
                     }
-                } label: {
-                    HStack(spacing: 4) {
-                        Text("Sort by")
-                        Image(systemName: "chevron.down")
+                }
+
+            VStack(alignment: .leading, spacing: 0) {
+                
+                // HEADER-Zeile mit Zurück, Titel & Sortier-Button
+                HStack {
+                    // 🔙 Zurück-Button mit erweitertem Tap-Bereich (mind. 44x44)
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.headline)
+                            .foregroundColor(Color("sakuraPink"))
+                            .frame(width: 44, height: 44) // Apple Guideline: min Tap-Ziel
+                            .contentShape(Rectangle()) // stellt sicher, dass ganzer Bereich tappbar ist
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical, 6)
+
+                    // Titel
+                    Text("Watched Anime")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("sakuraPink"))
+
+                    Spacer()
+                    
+                    // Sort by Button mit aktueller Auswahl
+                    Button(action: {
+                        withAnimation {
+                            showSortDropdown.toggle()
+                        }
+                    }) {
+                        HStack(spacing: 4) {
+                            Text("Sort by: \(selectedSortOption)")
+                            Image(systemName: showSortDropdown ? "chevron.up" : "chevron.down")
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 6)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color("sakuraPink"))
+                        )
+                        .foregroundColor(.black)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 16)
+                
+                // Dropdown außerhalb des Headers, klappt darunter auf
+                if showSortDropdown {
+                    VStack(spacing: 0) {
+                        ForEach(sortOptions, id: \.self) { option in
+                            Button(action: {
+                                selectedSortOption = option
+                                withAnimation {
+                                    showSortDropdown = false
+                                }
+                            }) {
+                                Text(option)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding()
+                                    .background(Color("sakuraPink"))
+                                    .foregroundColor(.black)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
                     .background(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color("sakuraPink"), lineWidth: 1)
+                            .stroke(Color.white.opacity(0.2), lineWidth: 1)
                     )
+                    .shadow(radius: 4)
+                    .padding(.horizontal)
+                    .padding(.top, 4)
                 }
-                .foregroundColor(Color("sakuraPink"))
-            }
-            .padding(.horizontal)
-            .padding(.top)
 
-            Spacer()
+                Spacer()
+            }
         }
-        .background(Color.black.ignoresSafeArea())
+        .navigationBarHidden(true)
     }
 }
 

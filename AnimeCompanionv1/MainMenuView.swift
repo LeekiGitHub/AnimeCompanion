@@ -117,6 +117,10 @@ struct MainMenuView: View {
                                 NavigationLink(destination: SearchView()) {
                                     menuButton(icon: item.icon, title: item.title)
                                 }
+                            } else if item.title == "WATCHED" {
+                                NavigationLink(destination: WatchedAnimeView()) {
+                                    menuButton(icon: item.icon, title: item.title)
+                                }
                             } else {
                                 Button(action: {
                                     // Weitere Aktionen
