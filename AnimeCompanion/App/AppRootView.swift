@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AppRootView.swift
 //  AnimeCompanion
 //
 //  Created by Yannik Luca Leekes on 31.12.25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppRootView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AppRootView()
 }
