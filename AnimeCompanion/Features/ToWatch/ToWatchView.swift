@@ -16,6 +16,7 @@ struct ToWatchView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("To Watch")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.App.textPrimary)
 
                 Text("Your watchlist lives here.")
                     .foregroundStyle(Color.App.textSecondary)
@@ -30,6 +31,7 @@ struct ToWatchView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Watchlist")
                                 .font(.headline)
+                                .foregroundStyle(Color.App.textPrimary)
                             Text("Later: list management + sorting.")
                                 .foregroundStyle(Color.App.textSecondary)
                         }
@@ -48,5 +50,6 @@ struct ToWatchView: View {
 
 #Preview {
     ToWatchView()
+        .preferredColorScheme(.dark)
 }
 

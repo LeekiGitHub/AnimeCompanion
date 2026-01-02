@@ -15,6 +15,7 @@ struct WatchedView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Watched")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.App.textPrimary)
 
                 Text("Completed anime will be archived here.")
                     .foregroundStyle(Color.App.textSecondary)
@@ -29,6 +30,7 @@ struct WatchedView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Watched Archive")
                                 .font(.headline)
+                                .foregroundStyle(Color.App.textPrimary)
                             Text("Later: history, ratings, notes.")
                                 .foregroundStyle(Color.App.textSecondary)
                         }
@@ -47,5 +49,6 @@ struct WatchedView: View {
 
 #Preview {
     WatchedView()
+        .preferredColorScheme(.dark)
 }
 

@@ -18,7 +18,7 @@ extension Color {
         static let textPrimary = Color("textPrimary")
         static let textSecondary = Color("textSecondary")
 
-        static let divider = Color("divider")
+        static let divider = Color("devider")
     }
 }
 

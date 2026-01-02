@@ -20,4 +20,5 @@ struct AppRootView: View {
 
 #Preview {
     AppRootView()
+        .preferredColorScheme(.dark)
 }

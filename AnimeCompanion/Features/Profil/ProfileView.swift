@@ -16,6 +16,7 @@ struct ProfileView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Profile")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.App.textPrimary)
 
                 Text("User info, stats, gamification later.")
                     .foregroundStyle(Color.App.textSecondary)
@@ -28,6 +29,7 @@ struct ProfileView: View {
                     .frame(height: 140)
                     .overlay(
                         Text("Profile Placeholder")
+                            .foregroundStyle(Color.App.textPrimary)
                             .padding(),
                         alignment: .topLeading
                     )
@@ -43,4 +45,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+        .preferredColorScheme(.dark)
 }

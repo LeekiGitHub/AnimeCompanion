@@ -16,6 +16,7 @@ struct WatchingView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Watching")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.App.textPrimary)
 
                 Text("Anime you're currently watching will appear here.")
                     .foregroundStyle(Color.App.textSecondary)
@@ -30,6 +31,7 @@ struct WatchingView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Currently Watching")
                                 .font(.headline)
+                                .foregroundStyle(Color.App.textPrimary)
                             Text("Later: list + progress tracking.")
                                 .foregroundStyle(Color.App.textSecondary)
                         }
@@ -48,5 +50,6 @@ struct WatchingView: View {
 
 #Preview {
     WatchingView()
+        .preferredColorScheme(.dark)
 }
 

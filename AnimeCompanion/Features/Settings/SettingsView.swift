@@ -16,6 +16,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Settings")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.App.textPrimary)
 
                 Text("Preferences and app configuration.")
                     .foregroundStyle(Color.App.textSecondary)
@@ -28,6 +29,7 @@ struct SettingsView: View {
                     .frame(height: 140)
                     .overlay(
                         Text("Settings Placeholder")
+                            .foregroundStyle(Color.App.textPrimary)
                             .padding(),
                         alignment: .topLeading
                     )
@@ -43,4 +45,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .preferredColorScheme(.dark)
 }

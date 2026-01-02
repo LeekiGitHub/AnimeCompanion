@@ -29,10 +29,12 @@ struct MainTabView: View {
         .tint(Color.App.accentPrimary)
         .toolbarBackground(Color.App.bgPrimary, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
+        .background(Color.App.bgPrimary.ignoresSafeArea())
     }
 }
 
 #Preview {
     MainTabView()
+        .preferredColorScheme(.dark)
 }
 

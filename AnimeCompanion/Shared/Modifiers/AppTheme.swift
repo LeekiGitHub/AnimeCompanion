@@ -14,5 +14,7 @@ extension View {
         self
             .foregroundStyle(Color.App.textPrimary)
             .background(Color.App.bgPrimary.ignoresSafeArea())
+            .toolbarBackground(Color.App.bgPrimary, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
     }
 }
